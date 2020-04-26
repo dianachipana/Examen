@@ -1,0 +1,19 @@
+
+<div class="container py-4">
+  <h5>Contenido del curso</h5>
+<div id="accordionExample">
+    <div *ngFor="let detail of detailSubject; let i=index" class="card">
+      <div class="card-header">
+        <a  class="card-link" data-toggle="collapse" (click)="hide(i)" >
+           <h6>{{detail.section}}</h6> 
+            {{detail.title | titlecase}}       
+        </a>
+      </div>
+      <div *ngIf="cardShow && indice==i"  id="collapseOne" class="collapse show" data-parent="#accordion" >
+        <div class="card-body" *ngFor="let class of detail.classes" >
+            {{class}}
+        </div>
+      </div>
+    </div> 
+  </div>
+</div>

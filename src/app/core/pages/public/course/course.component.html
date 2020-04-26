@@ -1,0 +1,29 @@
+<div class="container py-3">
+    <div class="row">
+        <div style="cursor:pointer;" 
+            *ngFor="let subject of listSubjects"
+            class="col-12 col-sm-6 col-md-4 col-lg-3">
+             <div class="card my-2" (click)= "gosubjectDetail(subject.id)">   
+                <img [src]="subject.img"
+                class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{subject.title | titlecase}}</h5>
+                    <p class="card-text">{{subject.instructor | titlecase}}</p>    
+                      <div class="progress">
+                        <div class="progress-bar progress-bar-striped" 
+                        role="progressbar"
+                         [style.width]="subject.progress + '%'" 
+                         [attr.ariaValuenow]="subject.progress" 
+                         aria-valuemin="0" aria-valuemax="100">{{subject.progress}}</div>
+                      </div>
+                      <form>
+                        <p class="clasificacion">
+                          <label *ngFor="let estrella of[].constructor(5)">★</label>
+                          <span> {{subject.qualification}} </span>
+                        </p>
+                      </form>               
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>
